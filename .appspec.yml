@@ -1,0 +1,28 @@
+varsion: 1.0
+os: linux
+
+files:
+  - source: /
+  - destination: /var/www/autoscale-node-api
+
+
+hooks:
+  BeforeInstall:
+    - location: sripts/before_install.sh
+      timeout: 300
+      runas: root
+  
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: root
+
+  ApplicationStart:
+    - locatoin: scripts/start_application.sh
+      timeout: 300
+      runas: root
+  
+  ValidateService:
+    - location: scripts/validate_service.sh
+      timeout: 300
+      runas: root
