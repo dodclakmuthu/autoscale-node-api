@@ -2,7 +2,7 @@ const express = require("express");
 const os = require("os");
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 function getServerIp() {
   const interfaces = os.networkInterfaces();
