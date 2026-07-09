@@ -71,7 +71,14 @@ const products = [
 app.get("/", (req, res) => {
   res.json({
     app: "node-test-app",
-    endpoints: ["/status", "/products"]
+    endpoints: ["/health", "/status", "/products"]
+  });
+});
+
+app.get("/health", (req, res) => {
+  res.json({
+    status: "ok",
+    timestamp: new Date().toISOString()
   });
 });
 
